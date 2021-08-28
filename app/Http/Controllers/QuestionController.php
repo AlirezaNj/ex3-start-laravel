@@ -36,6 +36,9 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'questionText' => 'required',
+        ]);
         $data = [
             'questionText'=>$request->questionText,
             'opt1'=>$request->opt1,
@@ -79,6 +82,9 @@ class QuestionController extends Controller
      */
     public function update(Request $request, Question $question)
     {
+        $validated = $request->validate([
+            'questionText' => 'required',
+        ]);
         $data = [
             'questionText'=>$request->questionText,
             'opt1'=>$request->opt1,
