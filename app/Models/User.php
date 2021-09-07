@@ -22,6 +22,8 @@ class User extends Authenticatable
         'family',
         'phone',
         'email',
+        'role',
+        'password',
     ];
 
     /**
@@ -42,4 +44,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function exams()
+    {
+        return $this->belongsToMany(Exam::class);
+    }
 }

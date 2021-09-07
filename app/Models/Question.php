@@ -11,10 +11,26 @@ class Question extends Model
 
     protected $fillable = [
         'questionText',
+        'type',
         'opt1',
         'opt2',
         'opt3',
         'opt4',
         'correctOpt',
+        'answer',
+        'lesson',
+        'grade',
+        'chapter',
+        'section',
+        'page',
+        'level',
+        'subject',
+        'source',
+        'author',
     ];
+
+    public function exams()
+    {
+        return $this->belongsToMany(Exam::class);
+    }
 }

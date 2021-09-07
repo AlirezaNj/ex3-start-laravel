@@ -4,6 +4,9 @@
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/FazelGheibi2001/backEnd.git" }
+    ],
     "require": {
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
@@ -11,12 +14,14 @@
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.3"
+        "fazelgheibi2001/backend": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
+        "laravel/breeze": "^1.4",
         "laravel/sail": "^1.0.1",
+        "laravel/ui": "^3.3",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"

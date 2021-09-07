@@ -26,7 +26,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
 
@@ -132,31 +132,55 @@
     </body>
 </html>
 --}}
-    <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Hello, world!</title>
-    <style>
-        td{
-            border: solid 2px;
-        }
-    </style>
-</head>
-<body>
-<div class="container text-center">
-    <h1>WELCOME</h1><br>
-    <a href="{{route('users.create')}}" class="btn btn-info">ساخت کاربر</a>
-    <a href="{{route('users.index')}}" class="btn btn-info">مشاهده جدول کاربران</a><br><br>
-    <a href="{{route('questions.create')}}" class="btn btn-info">ساخت سوال</a>
-    <a href="{{route('questions.index')}}" class="btn btn-info">مشاهده جدول سوالات</a>
-</div>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</body>
-</html>
+@extends('admin.layouts.master')
+@section('title')
+    صفحه اصلی
+@endsection
+@section('page-header')
+    <div class="row my-1">
+        <div class="col-sm-6">
+            <h1 class="m-0 text-dark">صفحه اصلی</h1>
+        </div>
+    </div>
+@endsection
+@section('main-content')
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{{route('users.create')}}" class="btn btn-secondary w-100 m-1">
+                <i class="bi bi-person-plus mx-2"></i>
+                <span>ساخت کاربر</span>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{route('users.index')}}" class="btn btn-secondary w-100 m-1">
+                <i class="bi bi-people mx-2"></i>
+                <span>مشاهده جدول کاربران</span>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{route('questions.create')}}" class="btn btn-warning w-100 m-1">
+                <i class="bi bi-question-square mx-2"></i>
+                <span>ساخت سوال</span>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{route('questions.index')}}" class="btn btn-warning w-100 m-1">
+                <i class="bi bi-question-circle mx-2"></i>
+                <span>مشاهده جدول سوالات</span>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{route('exams.create')}}" class="btn btn-primary w-100 m-1">
+                <i class="bi bi-file-earmark-plus mx-2"></i>
+                <span>ساخت امتحان</span>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{route('exams.index')}}" class="btn btn-primary w-100 m-1">
+                <i class="bi bi-journal-check mx-2"></i>
+                <span>مشاهده جدول امتحانات</span>
+
+            </a>
+        </div>
+    </div>
+@endsection

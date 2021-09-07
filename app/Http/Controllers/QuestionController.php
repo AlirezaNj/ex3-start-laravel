@@ -41,11 +41,22 @@ class QuestionController extends Controller
         ]);
         $data = [
             'questionText'=>$request->questionText,
+            'type'=>$request->type,
             'opt1'=>$request->opt1,
             'opt2'=>$request->opt2,
             'opt3'=>$request->opt3,
             'opt4'=>$request->opt4,
             'correctOpt'=>$request->correctOpt,
+            'answer'=>$request->answer,
+            'lesson'=>$request->lesson,
+            'grade'=>$request->grade,
+            'chapter'=>$request->chapter,
+            'section'=>$request->section,
+            'page'=>$request->page,
+            'level'=>$request->level,
+            'subject'=>$request->subject,
+            'source'=>$request->source,
+            'author'=>$request->author,
         ];
         Question::create($data);
         return redirect('admin/questions');
@@ -87,11 +98,22 @@ class QuestionController extends Controller
         ]);
         $data = [
             'questionText'=>$request->questionText,
+            'type'=>$request->type,
             'opt1'=>$request->opt1,
             'opt2'=>$request->opt2,
             'opt3'=>$request->opt3,
             'opt4'=>$request->opt4,
             'correctOpt'=>$request->correctOpt,
+            'answer'=>$request->answer,
+            'lesson'=>$request->lesson,
+            'grade'=>$request->grade,
+            'chapter'=>$request->chapter,
+            'section'=>$request->section,
+            'page'=>$request->page,
+            'level'=>$request->level,
+            'subject'=>$request->subject,
+            'source'=>$request->source,
+            'author'=>$request->author,
         ];
         $question->update($data);
         return redirect('admin/questions');

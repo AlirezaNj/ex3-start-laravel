@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $allUsers = User::all();
-        return view('admin.index' , ['users'=>$allUsers]);
+        return view('admin.users.index' , ['users'=>$allUsers]);
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        return view('admin.users.create');
     }
 
     /**
@@ -36,12 +36,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->name);
         $data = [
-          'name'=>$request->name,
-          'family'=>$request->family,
-          'phone'=>$request->phone,
-          'email'=>$request->email
+            'name'=>$request->name,
+            'family'=>$request->family,
+            'phone'=>$request->phone,
+            'email'=>$request->email,
+            'role'=>$request->role,
         ];
         User::create($data);
 
@@ -67,7 +67,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.edit' , ['user'=>$user]);
+        return view('admin.users.edit' );
     }
 
     /**
@@ -83,7 +83,8 @@ class UserController extends Controller
             'name'=>$request->name,
             'family'=>$request->family,
             'phone'=>$request->phone,
-            'email'=>$request->email
+            'email'=>$request->email,
+            'role'=>$request->role,
         ];
         $user->update($data);
         return redirect('admin/users');

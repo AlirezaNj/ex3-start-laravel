@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ExamController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('admin/users' , \App\Http\Controllers\UserController::class);
-Route::resource('admin/questions' , \App\Http\Controllers\QuestionController::class);
-//Route::post('admin/users/{id}' , 'UserController@update');
+Route::resource('admin/exams' , ExamController::class);
+Route::resource('admin/users' , UserController::class);
+Route::resource('admin/questions' , QuestionController::class);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
