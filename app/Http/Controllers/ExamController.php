@@ -30,7 +30,26 @@ class ExamController extends Controller
         $teachers = User::where('role' ,'LIKE' ,'%استاد%')->get();
         $students = User::where('role' ,'LIKE' ,'%دانش آموز%')->get();
         $questions = Question::all();
-        return view('admin.exams.create' , ['questions'=>$questions , 'teachers'=>$teachers , 'students'=>$students]);
+        $subjects = [];
+        $chapters = [];
+        $sections = [];
+        foreach ($questions as $question){
+//            $subjects[] = $question->subject;
+            !in_array($question->subject,$subjects) ? $subjects[] = $question->subject : '';
+            !in_array($question->chapter,$chapters) ? $chapters[] = $question->chapter : '';
+            !in_array($question->section,$sections) ? $sections[] = $question->section : '';
+//            $chapters[] = $question->chapter;
+        }
+
+        $data = [
+            'questions'=>$questions,
+            'teachers'=>$teachers,
+            'students'=>$students,
+            'subjects'=> $subjects,
+            'chapters'=> $chapters,
+            'sections'=> $sections,
+        ];
+        return view('admin.exams.create' , $data);
     }
 
     /**

@@ -8,8 +8,12 @@ $( document ).ready(function() {
     });
 
 
+    $( "input[type=checkbox]" ).on( "click", function (){
+        all_questions = $('#questions').find('span[id='+this.id+']').parent().parent().parent().parent().parent().toggleClass().toggle();
+        // all_questions = $('#questions').find('span[id='+this.id+']').parent("div[id^='question_card_']").toggleClass().toggle();
+    });
 
-    // $('#ahmad').click().addClass('btn btn-sm btn-danger');
+
 });
 
 function question_counter(){

@@ -94,19 +94,72 @@
                 @endforeach
             </select>
         </div>
-        <div class="form-group">
+        <div class="row" id="filters">
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card w-100">
+                    <div class="card-header bg-danger">
+                        انتخاب موضوع
+                    </div>
+                    <div class="card-body">
+                        @foreach($subjects as $subject)
+                            <div class="form-check">
+                                <input type="checkbox" id="check-{{$loop->iteration}}" class="form-check-input">
+                                <label for="check-{{$loop->iteration}}" class="form-check-label">{{$subject}}</label>
+                                {{--                        <li>{{$subject}}</li>--}}
+                            </div>
+                        @endforeach
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card w-100">
+                    <div class="card-header bg-warning">
+                        انتخاب فصل
+                    </div>
+                    <div class="card-body">
+                        @foreach($chapters as $chapter)
+                            <div class="form-check">
+                                <input type="checkbox" id="chapter-{{$chapter}}" class="form-check-input" checked>
+                                <label for="chapter-{{$chapter}}" class="form-check-label"> فصل{{$chapter}}</label>
+                                {{--                        <li>{{$subject}}</li>--}}
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card w-100">
+                    <div class="card-header bg-success">
+                        انتخاب بخش
+                    </div>
+                    <div class="card-body">
+                        @foreach($sections as $section)
+                            <div class="form-check">
+                                <input type="checkbox" id="check-{{$loop->iteration}}" class="form-check-input">
+                                <label for="check-{{$loop->iteration}}" class="form-check-label">بخش {{$section}}</label>
+                                {{--                        <li>{{$subject}}</li>--}}
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" id="questions">
             <div class="row">
                 @foreach($questions as $question)
-                    <div class="col-md-12 d-flex align-items-stretch">
+                    <div class="col-md-12 d-flex align-items-stretch" id="question_card_{{$loop->iteration}}">
                         <div class="card w-100">
                             <div class="row">
                                 <div class="col-md-10">
                                     <div class="card-header bg-light">
-                                        <span class="badge badge-dark">{{$question->lesson}}</span>
+                                        <span class="badge badge-dark" id="lesson-{{$loop->iteration}}">{{$question->lesson}}</span>
                                         <i class="bi bi-arrow-left-circle"></i>
-                                        <span class="badge badge-dark">فصل{{$question->chapter}}</span>
+                                        <span class="badge badge-dark" id="chapter-{{$question->chapter}}">فصل{{$question->chapter}}</span>
                                         <i class="bi bi-arrow-left-circle"></i>
-                                        <span class="badge badge-dark">{{$question->subject}}</span>
+                                        <span class="badge badge-dark" id="subject-{{$loop->iteration}}">{{$question->subject}}</span>
+                                        <i class="bi bi-arrow-left-circle"></i>
+                                        <span class="badge badge-dark" id="section-{{$question->section}}">بخش{{$question->section}}</span>
                                     </div>
                                     <div class="card-body">
                                         <div>
@@ -124,9 +177,9 @@
                                         <button type="button" class="btn btn-sm btn-outline-primary" id="addQuestion{{$loop->iteration}}"><i class="bi bi-plus-lg"></i></button>
                                     </div>
                                 </div>
-                                <div class="col-md-2 bg-success">
+                                <div class="col-md-2 bg-light">
                                     <div class="">
-                                        جای سختی
+
                                     </div>
                                 </div>
                             </div>
