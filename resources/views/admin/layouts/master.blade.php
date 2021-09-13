@@ -35,6 +35,9 @@
     <!-- template rtl version -->
     <link rel="stylesheet" href="/dist/css/custom-style.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -686,5 +689,6 @@
 <script src="/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
+<script src="/js/custom.js"></script>
 </body>
 </html>

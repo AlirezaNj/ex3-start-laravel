@@ -24,8 +24,10 @@
             </ul>
         </div>
     @endif
+    <div id="show_number_of_questions">تعداد سوال انتخاب شده</div>
     <form action="{{route('exams.store')}}" method="POST" dir="rtl">
         @csrf
+
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
@@ -95,25 +97,38 @@
         <div class="form-group">
             <div class="row">
                 @foreach($questions as $question)
-                    <div class="col-md-4 d-flex align-items-stretch my-1">
-                        <div class="card  shadow w-100">
-                            <div class="card-header">
-
-                                <lable for="question" class="form-check-label"> سوال شماره {{$loop->iteration}}</lable>
-                                <input type="checkbox" name="question_ids[]" class="form-check-input" id="question" value="{{$question->id}}">
-                            </div>
-                            <div class="card-body">
-                                {{$question->questionText}}
-                            </div>
-                            <div class="card-footer">
-                                <div class="form-check">
+                    <div class="col-md-12 d-flex align-items-stretch">
+                        <div class="card w-100">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="card-header bg-light">
+                                        <span class="badge badge-dark">{{$question->lesson}}</span>
+                                        <i class="bi bi-arrow-left-circle"></i>
+                                        <span class="badge badge-dark">فصل{{$question->chapter}}</span>
+                                        <i class="bi bi-arrow-left-circle"></i>
+                                        <span class="badge badge-dark">{{$question->subject}}</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div>
+                                    <span>سوال شماره {{$loop->iteration}}
+                                    <i class="bi bi-arrow-bar-left"></i>
+                                    </span>
+                                            {{$question->questionText}}
+                                        </div>
+                                        <div>
+                                            <span class="badge badge-warning"><i class="bi bi-brightness-high-fill"></i></span>
+                                            {{$question->answer}}
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="button" class="btn btn-sm btn-outline-primary" id="addQuestion{{$loop->iteration}}"><i class="bi bi-plus-lg"></i></button>
+                                    </div>
                                 </div>
-                                <span>
-                            فصل  {{$question->chapter}}
-                        </span>
-                                <span>
-                            / {{$question->subject}}
-                        </span>
+                                <div class="col-md-2 bg-success">
+                                    <div class="">
+                                        جای سختی
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
